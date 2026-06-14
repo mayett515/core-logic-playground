@@ -15,6 +15,7 @@ Primary entrypoint:
 Available skills:
 
 - `.agents/skills/core-logic-learning/SKILL.md`
+- `.agents/skills/learning-coach/SKILL.md`
 - `.agents/skills/enterprise-typescript-research/SKILL.md`
 - `.agents/skills/learning-note-writer/SKILL.md`
 
@@ -54,6 +55,20 @@ Use `core-logic-learning` when the user wants to:
 - derive an idea from first principles,
 - understand what old concept something really is.
 
+Use `learning-coach` when the user wants:
+
+- quick one-liner questions,
+- Socratic checks,
+- concept quizzes,
+- retrieval practice,
+- understanding checks,
+- small non-coding questions,
+- "quiz me",
+- "ask me questions",
+- "no exercise, just questions".
+
+Do not use `learning-coach` for full explanations, production research, note writing, or full coding exercises.
+
 Use `enterprise-typescript-research` only when the user asks about:
 
 - enterprise TypeScript,
@@ -78,6 +93,17 @@ Use `learning-note-writer` only when the user asks to:
 - make a lesson readable in Zed.
 
 When `learning-note-writer` is active, create or update an actual Markdown file. Do not only answer in terminal.
+
+## Learning loop
+
+When the user wants a complete learning cycle, prefer this order:
+
+1. `core-logic-learning` teaches the concept.
+2. `learning-coach` asks one-liner questions.
+3. `core-logic-learning` fixes weak spots.
+4. `core-logic-learning` creates small code practice if requested.
+5. `enterprise-typescript-research` shows production examples if requested.
+6. `learning-note-writer` saves polished notes if requested.
 
 ## Research and search policy
 
@@ -159,5 +185,6 @@ Use:
 - `notes/` for polished standalone notes.
 - `notes/index.md` as the note table of contents.
 - `src/` for code experiments and practice tasks.
+- `docs/cheatsheets/` for workflow graphics and cheat-sheet images.
 
 Keep `AGENTS.md` concise. The deeper rules live in `.ai-rules/` and the skill folders.

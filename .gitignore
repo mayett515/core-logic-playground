@@ -7,9 +7,6 @@ node_modules/
 *.pem
 *.key
 
-# Local archives / generated audit zips
-*.zip
-
 # Logs
 *.log
 npm-debug.log*
@@ -17,13 +14,18 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Archives / generated exports
+*.zip
+
 # OS files
 .DS_Store
 Thumbs.db
 
-# Optional: keep paid/book/course material local
+# Private / paid / local course material
+local-sources/
 total-typescript/
 Total TypeScript/
+Total_TypeScript_Karteikarten/
 book/
 chapters/
 *.pdf

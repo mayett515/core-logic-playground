@@ -1,4 +1,4 @@
-﻿---
+---
 name: learning-note-writer
 description: Use only when the user asks to create, save, update, polish, format, or write a Markdown note; make an explanation look like ChatGPT web; write to notes/; write to learning-chat.md; create a beautiful lesson; or make output readable in Zed. Do not trigger for ordinary explanations unless the user explicitly wants file output, saved notes, or polished Markdown.
 ---

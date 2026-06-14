@@ -1,4 +1,4 @@
-﻿# Learning Notes Index
+# Learning Notes Index
 
 This folder contains polished Markdown notes generated during learning sessions.
 

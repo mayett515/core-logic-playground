@@ -1,68 +1,114 @@
-# Core Logic Learning AI OS v2 — Schema-Routed Edition
+# Core Logic Playground
 
-This pack is a first-principles programming-language learning system for an LLM.
-
-It keeps the original learning philosophy:
+A Codex + Zed learning workspace for TypeScript and programming concepts.
 
 > Syntax is not knowledge. Mental models are knowledge.
 
-But this v2 edition is structured as an AI operating system:
-
-- flat `.ai-rules/` bundle
-- YAML frontmatter metadata
-- XML-style logic gates
-- terminal leaf files
-- anti-regression bans
-- one-file fallback prompt
-- setup guides for Custom GPT / Gemini Gem / ChatGPT Project / code editor rules
-
-## Main idea
-
-Programming languages become easier when the LLM always maps surface syntax to reusable concepts:
+## What this repo contains
 
 ```text
-Values and types
-Variables and memory
-Functions
-Conditionals / control flow
-Loops / iteration
-Data structures
-Scope
-Objects and modules
-Concurrency
-Execution model
+AGENTS.md
+= always-on Codex router
+
+.ai-rules/
+= Core Logic Learning OS
+
+.agents/skills/
+= reusable learning modes
+
+.codex/
+= Codex-specific config and subagents
+
+notes/
+= polished Markdown lessons
+
+learning-chat.md
+= ongoing learning journal
+
+src/
+= practice code
+
+docs/cheatsheets/
+= visual workflow references
 ```
 
-Every new topic should be routed through stable mental models:
+## Main skills
 
 ```text
-Input → Transformation → Output
-State + Transformations over time
-Different syntax. Same pattern.
-What old thing is this really?
-What deeper missing assumption is causing confusion?
+$core-logic-learning
+= deep first-principles explanation
+
+$learning-coach
+= one-liner questions and understanding checks
+
+$learning-note-writer
+= polished Markdown note output
+
+$enterprise-typescript-research
+= production / real-world TypeScript patterns
 ```
 
-## Best setup
+## Daily loop
 
-Paste `GPT_INSTRUCTIONS_COPYPASTE.md` into the GPT/Gem/project instruction field.
+```text
+Learn concept
+↓
+Learning coach quizzes you
+↓
+Fix weak spots
+↓
+Practice code
+↓
+Production examples
+↓
+Save note
+↓
+Review Git diff
+↓
+Commit
+```
 
-Upload the entire unzipped folder as knowledge/reference.
+## Quick start
 
-The most important folder is `.ai-rules/`. That folder is intentionally flat. The LLM should start with `.ai-rules/00-system-index.md` and route to only the relevant sibling files.
+```powershell
+codex
+```
 
-## What changed from v1
+Then:
 
-v1 was a strong knowledge bundle.
-v2 is a routed execution architecture.
+```text
+$core-logic-learning
 
-In v2, the LLM does not merely "know" the method. It has explicit gates for:
+Teach me TypeScript functions from first principles.
+Do not teach syntax first.
+```
 
-- syntax-first drift
-- fake intuition
-- shallow analogies
-- confusion rephrasing
-- missing abstraction layers
-- cross-language transfer
-- anti-regression
-# core-logic-playground
+Quiz mode:
+
+```text
+$learning-coach
+
+Quiz me on TypeScript functions.
+Ask one question at a time.
+```
+
+Save note:
+
+```text
+$core-logic-learning
+$learning-note-writer
+
+Create a polished note at notes/concepts/functions-core-logic.md.
+Update notes/index.md.
+```
+
+Production mode:
+
+```text
+$enterprise-typescript-research
+$learning-note-writer
+
+How do production TypeScript repos use generics?
+Create a note at notes/production/generics-production-patterns.md.
+Update notes/index.md.
+```

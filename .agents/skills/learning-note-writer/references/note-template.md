@@ -1,4 +1,4 @@
-﻿---
+---
 title: "<Topic>"
 type: "core-logic-note"
 created: "YYYY-MM-DD"
