@@ -1,0 +1,10 @@
+# Project-scoped Codex config for core-logic-playground.
+# Codex loads project-scoped config only when the project is trusted.
+
+# Prefer live web search for this learning/research workspace.
+# This is useful for enterprise/repo/current-doc questions.
+web_search = "live"
+
+[agents]
+max_threads = 4
+max_depth = 1
