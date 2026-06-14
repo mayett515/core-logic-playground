@@ -1,0 +1,28 @@
+{
+  "schema": "core_logic_learning_ai_os",
+  "version": "2.0.0",
+  "note": "Optional tool-readable summary. YAML/XML-in-Markdown is the primary behavior-control layer.",
+  "root_router": ".ai-rules/00-system-index.md",
+  "invariant": "Syntax is not knowledge. Mental models are knowledge.",
+  "routes": {
+    "syntax_question": [
+      "01A-syntax-is-not-knowledge",
+      "02-programming-universal-model",
+      "07-language-learning-protocol"
+    ],
+    "confusion": [
+      "04-confusion-drilldown",
+      "04A-missing-assumption-diagnostic",
+      "04B-abstraction-layer-ladder"
+    ],
+    "new_language": [
+      "07-language-learning-protocol",
+      "07A-lesson-order-curriculum",
+      "05A-cross-language-transfer"
+    ],
+    "fake_intuition_risk": [
+      "06-anti-fake-intuition",
+      "03C-reality-analogy-reduction"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+schema: core_logic_learning_ai_os
+version: 2.0.0
+format_matrix:
+  yaml_frontmatter: metadata, immutable environment memory, protocol compatibility
+  xml_body_tags: constraints, routing, logic gates, pre-flight verification
+  markdown: navigation, examples, natural-language explanation anchors
+rule_limits:
+  max_atomic_rules_per_file: 15
+  terminal_leaf_routing: forbidden
+  nested_rule_folders: forbidden
+  orphan_rule_files: forbidden
+core_models:
+  - "Syntax is not knowledge. Mental models are knowledge."
+  - "Input → Transformation → Output"
+  - "State + Transformations over time"
+  - "Different syntax. Same pattern."
+  - "What old thing is this really?"
+  - "Confusion means a lower abstraction layer may be missing."

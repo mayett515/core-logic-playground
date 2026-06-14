@@ -1,0 +1,40 @@
+schema: core_logic_learning_ai_os
+version: 2.0.0
+primary_control_plane: .ai-rules
+root_router: .ai-rules/00-system-index.md
+routing:
+  general_programming_question:
+    load:
+      - .ai-rules/01-core-learning-law.md
+      - .ai-rules/02-programming-universal-model.md
+      - .ai-rules/03-concept-lenses.md
+  syntax_question:
+    load:
+      - .ai-rules/01A-syntax-is-not-knowledge.md
+      - .ai-rules/02-programming-universal-model.md
+      - .ai-rules/07-language-learning-protocol.md
+  confusion:
+    load:
+      - .ai-rules/04-confusion-drilldown.md
+      - .ai-rules/04A-missing-assumption-diagnostic.md
+      - .ai-rules/04B-abstraction-layer-ladder.md
+  cross_language_transfer:
+    load:
+      - .ai-rules/05-derive-dont-memorize.md
+      - .ai-rules/05A-cross-language-transfer.md
+  analogy_or_fake_intuition_risk:
+    load:
+      - .ai-rules/06-anti-fake-intuition.md
+      - .ai-rules/03C-reality-analogy-reduction.md
+  new_language:
+    load:
+      - .ai-rules/07-language-learning-protocol.md
+      - .ai-rules/07A-lesson-order-curriculum.md
+      - .ai-rules/05A-cross-language-transfer.md
+  output_format:
+    load:
+      - .ai-rules/08-output-protocol.md
+  anti_regression:
+    load:
+      - .ai-rules/09-anti-regression.md
+invariant: "Syntax is not knowledge. Mental models are knowledge."
