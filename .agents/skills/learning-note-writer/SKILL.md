@@ -1,242 +1,252 @@
 ---
 name: learning-note-writer
-description: Use only when the user asks to create, save, update, polish, format, or write a Markdown note; make an explanation look like ChatGPT web; write to notes/; write to learning-chat.md; create a beautiful lesson; or make output readable in Zed. Do not trigger for ordinary explanations unless the user explicitly wants file output, saved notes, or polished Markdown.
+description: "Use this skill when the user wants to save, write, update, clean up, summarize, or convert learning content into a reusable Markdown note. Trigger on phrases like save this, make a note, write this into notes, update learning-chat, turn this into a note, summarize this for later, create a cheat sheet, add this to my learning system, document this, put this in my notes, clean this up, make this reusable, convert this into Markdown. Preserve the user's core idea, organize it clearly, write in Markdown, and usually add active recall questions for later review."
 ---
 
-# Learning Note Writer Skill
+# Learning Note Writer
 
-<skill_purpose>
-This skill turns explanations, lessons, research results, and coding guidance into polished Markdown notes.
+<skill_contract>
 
-It is not just a formatting skill.
+<purpose>
+Use this skill when the user wants learning content saved, cleaned up, or converted into reusable Markdown.
 
-It creates durable learning artifacts that the user can open, read, edit, and revisit in Zed.
-</skill_purpose>
+The goal is not to create generic textbook notes.
 
-<activation_gate>
-Use this skill only when the user asks for one of these:
+The goal is to preserve the user's real understanding and turn it into a note that can be reviewed later.
+
+A good learning note should help the user later in two ways:
+
+1. Rebuild the mental model.
+2. Test the mental model with active recall.
+</purpose>
+
+<activation>
+
+Use this skill when the user says or implies:
 
 - save this
+- make a note
 - write this into notes
-- create a note
-- update learning-chat.md
-- make this look like ChatGPT web
-- make a beautiful Markdown explanation
-- format this nicely
-- create a lesson file
-- create a readable Zed note
-- write the final answer into a `.md` file
+- update learning-chat
+- turn this into a note
+- summarize this for later
+- create a cheat sheet
+- add this to my learning system
+- document this
+- put this in my notes
+- clean this up
+- make this reusable
+- convert this into Markdown
+- save this as a learning note
+- make this into review material
 
-Do not activate this skill for normal chat answers unless the user wants a file output.
-</activation_gate>
+</activation>
 
-<output_contract>
-If this skill is activated, create or update an actual Markdown file.
+<non_activation>
 
-Preferred output locations:
+Do not use this skill as the main mode when the user mainly asks to:
 
-- `notes/` for standalone polished topic notes
-- `learning-chat.md` for ongoing session notes
-- `notes/index.md` for the note table of contents
+- be quizzed live
+- get a first-principles explanation only
+- research production TypeScript usage only
+- edit unrelated project files
 
-At the end of the response, state exactly which file was created or updated.
-</output_contract>
+For live testing, prefer `learning-coach`.
 
-<main_references>
-Use these references when creating polished notes:
+For deep explanation, prefer `core-logic-learning`.
 
-- `.agents/skills/learning-note-writer/references/note-template.md`
-- `.agents/skills/learning-note-writer/references/markdown-style-guide.md`
-- `.agents/skills/learning-note-writer/references/mermaid-patterns.md`
+For production research, prefer `enterprise-typescript-research`.
 
-Use references as structure, not as a prison. Adapt the final note to the concept.
-</main_references>
+</non_activation>
 
-<core_logic_integration>
-When the note is about learning a programming concept, combine this skill with the Core Logic Learning OS:
+<core_rules>
 
-- `.ai-rules/00-system-index.md`
-- `.ai-rules/01-core-learning-law.md`
-- `.ai-rules/01A-syntax-is-not-knowledge.md`
-- `.ai-rules/03-concept-lenses.md`
-- `.ai-rules/04-confusion-drilldown.md`
-- `.ai-rules/06-anti-fake-intuition.md`
+<rule id="preserve_user_idea">
+Preserve the user's core idea.
 
-The note should preserve the core law:
+Do not replace the user's mental model with generic textbook wording.
+</rule>
 
-> Syntax is not knowledge. Mental models are knowledge.
+<rule id="clean_not_corporate">
+Clean the idea up, but do not make it sound like corporate documentation.
+</rule>
 
-Start with the problem, model, pattern, and information flow before syntax.
-</core_logic_integration>
+<rule id="structure_for_review">
+Structure the note so the user can come back later and rebuild the concept.
+</rule>
 
-<enterprise_research_integration>
-When the user asks for production, enterprise, senior-engineer, or real-world TypeScript examples, combine this skill with:
+<rule id="active_recall_by_default">
+For real learning notes, usually add active recall questions.
 
-- `.agents/skills/enterprise-typescript-research/SKILL.md`
-- `.agents/skills/enterprise-typescript-research/references/source-targets.md`
+Do not add active recall only when the user explicitly asks for a very short note or when the note is purely operational.
+</rule>
 
-In that case, the note should separate:
+</core_rules>
 
-1. Beginner version
-2. Production pressure
-3. Real repo examples
-4. Repeated pattern
-5. Tradeoffs
-6. Core Logic explanation
-7. Practice direction
-</enterprise_research_integration>
+<note_style>
 
-<markdown_quality_gate>
-Every note must be readable as a standalone lesson.
+Prefer:
 
-Use:
-
-- clear headings
+- clear Markdown headings
 - short paragraphs
-- fenced code blocks with language labels
-- tables when they compare ideas
-- Mermaid diagrams when they clarify flow or structure
-- blockquotes for important mental-model statements
-- small practice tasks when useful
-- a final summary
+- code fences when useful
+- small examples
+- active recall questions
+- wrong mental model vs better mental model
+- problem -> mechanism -> information flow -> pattern -> syntax
 
 Avoid:
 
-- raw chat transcripts
-- giant walls of text
-- decorative diagrams that do not help understanding
-- syntax-first explanations
-- dumping code without explaining the model
-</markdown_quality_gate>
+- huge walls of text
+- vague summaries
+- over-polished language
+- deleting the user's original insight
+- adding unrelated theory
+- pretending uncertain ideas are certain
 
-<code_block_policy>
-All code examples must use fenced code blocks with a language label.
+</note_style>
 
-Examples:
+<default_note_structure>
 
-```ts
-function double(x: number) {
-  return x * 2
-}
-```
-
-```bash
-npm run dev
-```
-
-```json
-{
-  "compilerOptions": {
-    "strict": true
-  }
-}
-```
-
-Use these labels when appropriate:
-
-- `ts` for TypeScript
-- `tsx` for React TypeScript
-- `js` for JavaScript
-- `bash` for terminal commands
-- `json` for JSON
-- `md` for Markdown examples
-- `mermaid` for diagrams
-</code_block_policy>
-
-<mermaid_policy>
-Use Mermaid diagrams when they make the concept easier to understand.
-
-Good Mermaid use cases:
-
-- input → transformation → output
-- state transitions
-- control flow
-- async flow
-- request/response flow
-- module boundaries
-- data pipeline
-- package/dependency relationships
-- object relationships
-
-Do not force Mermaid.
-
-If plain text, a table, or code is clearer, use that instead.
-
-Keep diagrams small enough to understand quickly.
-</mermaid_policy>
-
-<default_note_shape>
-When creating a concept note, prefer this structure:
+Use this structure when useful:
 
 1. Title
-2. The problem this concept solves
-3. The core mental model
-4. State and transformations
+2. Core idea
+3. Problem
+4. Mechanism
 5. Information flow
-6. Visual model
-7. Pattern recognition
-8. Syntax mapping
-9. Code example
-10. Beginner traps
-11. Real-world usage
-12. Practice task
-13. Summary
-</default_note_shape>
+6. Pattern
+7. Syntax
+8. Example
+9. Common confusion
+10. Active recall
 
-<file_naming>
-Use lowercase kebab-case filenames.
+Do not force every section if the note does not need it.
+
+</default_note_structure>
+
+<section_guidance>
+
+<title>
+Use a clear topic title.
 
 Examples:
 
-- `notes/functions-core-logic.md`
-- `notes/promises-later-values.md`
-- `notes/generics-production-patterns.md`
-- `notes/async-await-control-flow.md`
+- Functions From First Principles
+- Promises Core Logic
+- TypeScript Runtime vs Compile Time
+</title>
 
-If the user does not specify a file, create a reasonable filename in `notes/`.
+<core_idea>
+Write the main insight in a short, memorable form.
 
-If the note is clearly production-focused, prefer:
+Example:
 
-- `notes/production/<topic>.md`
+A function is not mainly syntax. It is a reusable process with inputs, internal steps, and an output.
+</core_idea>
 
-If the note is a pure concept explanation, prefer:
+<problem>
+Explain what problem exists before the concept appears.
+</problem>
 
-- `notes/concepts/<topic>.md`
+<mechanism>
+Explain what actually happens.
+</mechanism>
 
-If the note is an exercise or practice task, prefer:
+<information_flow>
+Explain where data, control, or responsibility moves.
+</information_flow>
 
-- `notes/exercises/<topic>.md`
-</file_naming>
+<pattern>
+Explain what repeated solution appears because of the mechanism.
+</pattern>
 
-<index_policy>
-When creating a new standalone note, update `notes/index.md` with a link unless the user says not to.
+<syntax>
+Explain syntax only after the problem and mechanism are clear.
+</syntax>
 
-Use this style:
+<example>
+Add a small example when useful.
 
-```md
-- [Functions: Core Logic](concepts/functions-core-logic.md)
-```
-</index_policy>
+For TypeScript examples, prefer short code blocks.
+</example>
 
-<anti_regression>
-Do not answer only in terminal if the user asked for a Markdown note.
+<common_confusion>
+Include this when the user had a clear misunderstanding.
 
-Do not create a note that is just copied chat.
+Use this shape:
 
-Do not make the note pretty but shallow.
+- Wrong mental model:
+- Better mental model:
+</common_confusion>
 
-The note must preserve the learning logic:
+<active_recall>
+End most learning notes with 2-5 short active recall questions.
 
-Problem → model → flow → pattern → syntax → practice.
-</anti_regression>
+These questions should help the user test the idea later without rereading the explanation first.
 
-<completion_checklist>
-Before finishing, verify:
+Good active recall questions ask about:
 
-- Did I create or update the requested `.md` file?
-- Did I use proper fenced code blocks?
-- Did I use Mermaid only if useful?
-- Did I avoid raw chat transcript style?
-- Did I make the note readable without needing the terminal conversation?
-- Did I state which file was written?
-</completion_checklist>
+- the problem
+- the mechanism
+- the information flow
+- the difference between syntax and concept
+- runtime vs compile-time when TypeScript is involved
+- what would break if the concept did not exist
+- how to explain the concept without naming the syntax
+
+Example active recall questions:
+
+1. What problem does this concept solve?
+2. What mechanism makes it work?
+3. What part is runtime behavior and what part is TypeScript checking?
+4. What is the wrong mental model beginners often have here?
+5. How would you explain this concept without using its syntax name?
+</active_recall>
+
+</section_guidance>
+
+<file_behavior>
+
+If the user asks to save to a specific file, use that file.
+
+If the user says "update learning-chat", use:
+
+learning-chat.md
+
+If the user says "save this as a note" but gives no file name, create or update a sensible Markdown file in:
+
+notes/
+
+Use descriptive kebab-case file names.
+
+Examples:
+
+- notes/functions-first-principles.md
+- notes/promises-core-logic.md
+- notes/typescript-runtime-vs-compile-time.md
+
+</file_behavior>
+
+<uncertainty_rule>
+
+If the source conversation is unclear, preserve uncertainty.
+
+Use wording like:
+
+I am not fully sure about this part yet.
+
+Do not pretend the idea is complete if it is not complete.
+</uncertainty_rule>
+
+<output_contract>
+
+After writing or updating a note, briefly say:
+
+1. Which file was changed
+2. What was added
+3. Whether the note is new or updated
+
+</output_contract>
+
+</skill_contract>
