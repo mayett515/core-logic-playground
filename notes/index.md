@@ -6,6 +6,8 @@ This folder contains polished Markdown notes generated during learning sessions.
 
 Core programming concepts explained through first principles.
 
+- [TypeScript Chapter 12: Weird Parts Review](typescript-chapter-12-weird-parts-review.md)
+
 <!-- Add links here -->
 
 ## Production / Enterprise Notes
