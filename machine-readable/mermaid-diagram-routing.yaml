@@ -1,0 +1,61 @@
+kind: core-logic-skill-routing
+name: mermaid-diagram-designer
+version: 1
+
+purpose: >
+  Route visual, diagram, Mermaid, flowchart, sequence, state, architecture,
+  relationship, and information-flow requests to the Mermaid diagram designer skill.
+
+skill_path: .agents/skills/mermaid-diagram-designer/SKILL.md
+core_rule_path: .ai-rules/10-visual-modeling-with-mermaid.md
+
+triggers:
+  direct:
+    - mermaid
+    - mermaid diagram
+    - make a diagram
+    - create a flowchart
+    - visualize this
+    - diagram this
+    - show the flow
+    - show state changes
+    - sequence diagram
+    - state diagram
+    - architecture diagram
+    - class diagram
+    - er diagram
+    - mindmap
+    - dependency graph
+    - code to diagram
+    - fix this mermaid
+  semantic:
+    - user wants a visual model
+    - user wants information flow represented
+    - user wants control flow represented
+    - user wants runtime vs compile-time split visualized
+    - user wants module boundaries visualized
+    - user wants production architecture visualized
+
+combine_with:
+  core-logic-learning:
+    when: user wants a concept explained visually from first principles
+  learning-note-writer:
+    when: user wants a diagram inserted into a saved note
+  enterprise-typescript-research:
+    when: user wants real-world architecture, tooling, or repo structure visualized
+
+default_diagram_priority:
+  - flowchart
+  - sequenceDiagram
+  - stateDiagram-v2
+  - classDiagram
+  - erDiagram
+  - mindmap
+
+quality_gates:
+  - one diagram answers one question
+  - diagram must clarify the mental model
+  - prefer small diagrams
+  - explain how to read the diagram
+  - use human labels
+  - do not use Mermaid decoratively
