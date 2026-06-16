@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 This repository contains a Core Logic Learning OS in `.ai-rules/`.
 
@@ -94,6 +94,29 @@ Use `learning-note-writer` only when the user asks to:
 
 When `learning-note-writer` is active, create or update an actual Markdown file. Do not only answer in terminal.
 
+Use `mermaid-diagram-designer` when the user wants to:
+
+- make a Mermaid diagram,
+- visualize a concept,
+- create a flowchart,
+- create a sequence diagram,
+- create a state diagram,
+- create an architecture diagram,
+- create a class diagram,
+- create an ER diagram,
+- create a mindmap,
+- show information flow, control flow, state changes, relationships, module boundaries, or production architecture,
+- add a diagram to a note,
+- debug Mermaid syntax.
+
+Use it together with:
+
+- `core-logic-learning` for learning diagrams,
+- `learning-note-writer` for saved note diagrams,
+- `enterprise-typescript-research` for production architecture diagrams.
+
+Do not force diagrams. Use Mermaid only when it clarifies flow, state, boundaries, relationships, or architecture.
+
 ## Learning loop
 
 When the user wants a complete learning cycle, prefer this order:
@@ -188,3 +211,8 @@ Use:
 - `docs/cheatsheets/` for workflow graphics and cheat-sheet images.
 
 Keep `AGENTS.md` concise. The deeper rules live in `.ai-rules/` and the skill folders.
+
+Available Mermaid skill:
+
+- .agents/skills/mermaid-diagram-designer/SKILL.md
+
